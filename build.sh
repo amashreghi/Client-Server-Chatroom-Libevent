@@ -1,3 +1,3 @@
 #!/bin/bash
 
-gcc main.c -o bin/main -laio
+gcc client.c -o bin/client -levent
