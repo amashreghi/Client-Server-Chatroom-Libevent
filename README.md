@@ -15,3 +15,6 @@ The steps to compile are as follows:
 
 NOTE: If you want to convert this to an actuall application with UI, just use messages that come after ">>>>>", since they are the ones sent by the server to all connected clients.
 
+Here is an image of the application:
+![alt text](./chatroom.png)
+
