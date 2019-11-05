@@ -52,7 +52,7 @@ static void read_callback(struct bufferevent *bev, void *ctx)
 	}
 }
 
-static void echo_event_cb(struct bufferevent *bev, short events, void *ctx)
+static void event_db(struct bufferevent *bev, short events, void *ctx)
 {
 	struct evbuffer *output = bufferevent_get_output(bev);
 	size_t remain = evbuffer_get_length(output);
@@ -76,7 +76,7 @@ static void accept_conn_cb(struct evconnlistener *listener,
 	struct bufferevent *bev = bufferevent_socket_new(
 			base, fd, BEV_OPT_CLOSE_ON_FREE);
 	set_tcp_no_delay(fd);
-	bufferevent_setcb(bev, read_callback, NULL, echo_event_cb, NULL);
+	bufferevent_setcb(bev, read_callback, NULL, event_db, NULL);
 	bufferevent_enable(bev, EV_READ|EV_WRITE);
 	bevs[client_count++] = bev;
 }
